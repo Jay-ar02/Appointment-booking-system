@@ -11150,7 +11150,7 @@ textarea.is-invalid.tt-hint {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #191c24;
+  background-color: #ffffff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -16320,8 +16320,8 @@ code {
   z-index: 9999;
   background: #000; }
   #proBanner .card-body-padding {
-    padding-top: .55rem;
-    padding-bottom: .55rem;
+    padding-top: .0rem;
+    padding-bottom: .0rem;
     padding-left: 2rem;
     padding-right: 2rem; }
     @media (max-width: 766px) {

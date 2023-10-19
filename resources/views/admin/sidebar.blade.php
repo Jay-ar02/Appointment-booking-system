@@ -10,7 +10,6 @@
   color: #00D9A5;
 }
 
-
 </style>
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -75,7 +74,7 @@
       <li class="nav-linkk">
         <a class="nav-link" href="{{'add_doctor_view'}}">
           <span class="menu-icon">
-            <i class="mdi mdi-file-document-box"></i>
+            <i class="mdi mdi-account-plus" style="color: #00D9A5;"></i>
           </span>
           <span class="menu-title" style="color: #505153;">Add Doctors</span>
         </a>
@@ -84,7 +83,7 @@
       <li class="nav-linkk">
         <a class="nav-link" href="{{'showappointment'}}">
           <span class="menu-icon">
-            <i class="mdi mdi-file-document-box"></i>
+            <i class="mdi mdi-script" style="color: #00D9A5;"></i>
           </span>
           <span class="menu-title" style="color: #505153;">Appointments</span>
         </a>
@@ -93,7 +92,7 @@
       <li class="nav-linkk">
         <a class="nav-link" href="{{'showdoctor'}}">
           <span class="menu-icon">
-            <i class="mdi mdi-file-document-box"></i>
+            <i class="mdi mdi-worker" style="color: #00D9A5;"></i>
           </span>
           <span class="menu-title" style="color: #505153;">All Doctors</span>
         </a>

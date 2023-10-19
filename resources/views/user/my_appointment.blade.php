@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="../assets/css/theme.css">
+
+  <link rel="shortcut icon" href="admin/assets/images/mini-logo.png" />
 </head>
 <body>
 

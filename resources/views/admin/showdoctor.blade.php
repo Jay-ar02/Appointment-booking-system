@@ -40,8 +40,7 @@
                         <th style="padding:10px">Specialty</th>
                         <th style="padding:10px">Room No</th>
                         <th style="padding:10px">Image</th>
-                        <th style="padding:10px">Delete</th>
-                        <th style="padding:10px">Update</th>
+                        <th style="padding:10px">Operations</th>
                     </tr>
 
                     @foreach($data as $doctor)
@@ -51,9 +50,10 @@
                         <td style="color:rgb(0, 0, 0);">{{$doctor->phone}}</td>
                         <td style="color:rgb(0, 0, 0);">{{$doctor->specialty}}</td>
                         <td style="color:rgb(0, 0, 0);">{{$doctor->room}}</td>
-                        <td style="color:rgb(0, 0, 0);"><img height="100" width="100" src="doctorimage/{{$doctor->image}}" alt=""></td>
-                        <td style="color:rgb(0, 0, 0);"><a onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger" href="{{url('deletedoctor',$doctor->id)}}">Delete</a></td>
-                        <td style="color:rgb(0, 0, 0);"><a class="btn btn-primary" href="{{url('updatedoctor',$doctor->id)}}">Update</a></td>
+                        <td style="color:rgb(0, 0, 0);"><img height="100" width="100" src="doctorimage/{{$doctor->image}}" alt=""> </td>
+                        <td style="color:rgb(0, 0, 0);"><a onclick="return confirm('Are you sure to delete this?')" class="btn btn-danger" href="{{url('deletedoctor',$doctor->id)}}">Delete</a>
+                         <a class="btn btn-primary" href="{{url('updatedoctor',$doctor->id)}}">Update</a>
+                         <a class="btn btn-success" href="/view">View</a></td>
                     </tr>
 
                     @endforeach

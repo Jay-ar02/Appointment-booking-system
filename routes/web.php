@@ -33,6 +33,10 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::get('/view', function () {
+    return view('admin\view');
+});
+
 Route::get('add_doctor_view',[AdminController::class,'addview']);
 
 Route::post('/upload_doctor',[AdminController::class,'upload']);
