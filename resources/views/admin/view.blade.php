@@ -148,14 +148,10 @@ background: linear-gradient(to right, #14c299, #008667);
   margin-top: 10px;
   font-family: Verdana,Geneva,Tahoma,sans-serif;
 }
-       
-
-
-
     </style>
-
 </head>
 <body>
+
     <div class="card">
   <div class="left-container">
     <img src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__480.jpg" alt="Profile Image">

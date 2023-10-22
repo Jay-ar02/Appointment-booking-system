@@ -55,18 +55,18 @@
 
     <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
         @csrf
-    <div style="padding:15px">
-        <label style="color: black" for="">Doctor Name</label>
+    <div style="padding:5px;">
+        <label style="color: black" for="">Doctor Name</label><br>
         <input type="text" style="color:black" name="name" placeholder="Write the name" required>
     </div>
 
     <div style="padding:15px">
-        <label style="color: black" for="">Phone</label>
+        <label style="color: black" for="">Phone</label><br>
         <input type="number" style="color:black" name="number" placeholder="Write the number" required>
     </div>
 
     <div style="padding:15px">
-        <label style="color: black" for="">Specialty</label>
+        <label style="color: black" for="">Specialty</label><br>
         <select name="specialty" id="" style="color:black; width: 200px;" required>
             <option value="">--Select--</option>
             <option value="Dermatologist">Dermatologist</option>
@@ -77,14 +77,19 @@
     </div>
 
     <div style="padding:15px">
-        <label style="color: black" for="">Room No</label>
-        <input type="text" style="color:black" name="room" placeholder="Write the room number" required>
+        <label style="color: black" for="">Room No</label><br>
+        <input type="text" style="color:black;" name="room" placeholder="Write the room number" required>
     </div>
 
     <div style="padding:15px">
         <label style="color: black" for="">Doctor Image</label>
-        <input type="file" style="color: black" name="file" required>
-    </div>
+        <div style="padding: 15px">
+          <div style="border: 1px solid #979797; padding: 5px; width: 200px; height: 45px;">
+              <input type="file" style="color: black; border: none; padding: 0; width: 100%; height: 100%;" id="file" name="file" required>
+          </div>
+      </div>
+      
+          </div>
 
     <div style="padding:15px">
         <input type="submit" style="color: black" class="btn btn-success">

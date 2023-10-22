@@ -16,7 +16,7 @@
 
     @include('admin.css')
   </head>
-  <body>
+  <body style="background-color: #e9e9e9">
     <div class="container-scroller">
       <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
@@ -46,7 +46,7 @@
 
           
         
-        <div class="container" align="center" style="padding:100px">
+        <div class="container" align="center" style="padding:100px;">
 
             @if(session()->has('message'))
 
@@ -59,42 +59,42 @@
             
             @endif
 
-            <form action="{{url('editdoctor',$data->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('editdoctor', $data->id) }}" method="POST" enctype="multipart/form-data">
                 
                 @csrf
 
                 <div style="padding: 15px">
-                    <label for="">Doctor Name</label>
+                    <label for="" style="color:black">Doctor Name</label>
                     <input type="text" style="color:black" name="name" value="{{$data->name}}">
                 </div>
 
                 <div style="padding: 15px">
-                    <label for="">Phone</label>
+                    <label for="" style="color:black">Phone</label>
                     <input type="number" style="color:black" name="phone" value="{{$data->phone}}">
                 </div>
                 
                 <div style="padding: 15px">
-                    <label for="">Specialty</label>
+                    <label for="" style="color:black">Specialty</label>
                     <input type="text" style="color:black" name="specialty" value="{{$data->specialty}}">
                 </div>
 
                 <div style="padding: 15px">
-                    <label for="">Room</label>
+                    <label for="" style="color:black">Room</label>
                     <input type="text" style="color:black" name="room" value="{{$data->room}}">
                 </div>
 
                 <div style="padding: 15px">
-                    <label for="">Old image</label>
+                    <label for="" style="color:black">Old image</label>
                     <img height="150" width="150" src="doctorimage/{{$data->image}}" alt="">
                 </div>
 
                 <div style="padding: 15px">
-                    <label for="">Change Image</label>
-                    <input type="file" name="file"> 
+                    <label for="" style="color:black">Change Image</label>
+                    <input type="file" name="file" style="color:black"> 
                 </div>
 
                 <div style="padding: 15px">
-                    <input type="submit" class="btn btn-primary" name="file"> 
+                    <input type="submit" class="btn btn-primary" name="file" style="color:black"> 
                 </div>
             
             </form>
