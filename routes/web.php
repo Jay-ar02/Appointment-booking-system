@@ -61,3 +61,10 @@ Route::get('/updatedoctor/{id}',[AdminController::class,'updatedoctor']);
 
 Route::post('/editdoctor/{id}',[AdminController::class,'editdoctor']);
 
+Route::get('/view/{id}', [AdminController::class, 'show']);
+
+Route::get('/edit_appoint/{id}', 'App\Http\Controllers\HomeController@edit_appoint')->name('edit_appoint');
+
+Route::put('/myappointment/{id}', [HomeController::class, 'UpdateAppointment'])->name('user.UpdateAppointment');
+
+Route::get('/myappointment', [HomeController::class, 'myappointment'])->name('user.my_appointment');

@@ -35,7 +35,7 @@ class AdminController extends Controller
     }
 
     public function showappointment(){
-        $data=appointment::all();
+        $data=appointment::paginate(10); // Change this line
         return view('admin.showappointment',compact('data'));
     }
 
@@ -87,5 +87,13 @@ class AdminController extends Controller
         $doctor->save();
         return redirect()->back()->with('message', 'Doctor details updated successfully!');
     }
+
+    public function show($id)
+    {
+        $doctor = Doctor::find($id);
+    
+        return view('admin.view', ['doctor' => $doctor]);
+    }
+
     
 }

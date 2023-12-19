@@ -31,39 +31,45 @@
         <!-- partial -->
 
         <div class="container-fluid page-body-wrapper">
-        <div align="center" style="padding-top:100px;">
+        <div align="center" style="padding-top:20px;">
             <table>
                 <tr style="background-color:#00D9A5;">
-                    <th style="padding:10px">Customer Name</th>
-                    <th style="padding:10px">Email</th>
-                    <th style="padding:10px">Phone</th>
-                    <th style="padding:10px">Doctor Name</th>
-                    <th style="padding:10px">Date</th>
-                    <th style="padding:10px">Message</th>
-                    <th style="padding:10px">Status</th>
-                    <th style="padding:10px">Approved</th>
-                    <th style="padding:10px">Cancel</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Customer Name</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Email</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Phone</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Doctor Name</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Date</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Message</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Status</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Approved</th>
+                    <th style="padding:10px; border: 1px solid #cecece;">Cancel</th>
                 </tr>
 
                 @foreach($data as $appoint)
 
                 <tr align="center" style="background-color: #ffffff;">
-                    <td style="color:rgb(0, 0, 0);">{{$appoint->name}}</td>
-                    <td style="color:rgb(0, 0, 0);">{{$appoint->email}}</td>
-                    <td style="color:rgb(0, 0, 0);">{{$appoint->phone}}</td>
-                    <td style="color:rgb(0, 0, 0);">{{$appoint->doctor}}</td>
-                    <td style="color:rgb(0, 0, 0);">{{$appoint->date}}</td>
-                    <td style="color:rgb(0, 0, 0);">{{$appoint->message}}</td>
-                    <td style="color:rgb(0, 0, 0);">{{$appoint->status}}</td>
-                    <td style="color:rgb(0, 0, 0);"><a class="btn btn-success" href="{{url('approved',$appoint->id)}}">Approve</a></td>
-                    <td style="color:rgb(0, 0, 0);"><a class="btn btn-danger" href="{{url('cancelled',$appoint->id)}}">Cancel</a></td>
-                </tr>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;">{{$appoint->name}}</td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;">{{$appoint->email}}</td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;">{{$appoint->phone}}</td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;">{{$appoint->doctor}}</td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;">{{$appoint->date}}</td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;">{{$appoint->message}}</td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;">{{$appoint->status}}</td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;"><a class="btn btn-success" href="{{url('approved',$appoint->id)}}">Approve</a></td>
+                  <td style="color:rgb(0, 0, 0); border: 1px solid #cecece;"><a class="btn btn-danger" href="{{url('cancelled',$appoint->id)}}">Cancel</a></td>
+              </tr>
 
                 @endforeach
 
             </table>
+            <!-- Your table here -->
+<br>
+<div style="display: flex; justify-content: center;">
+  {{ $data->links() }}
+</div>
         </div>
         </div>
+        
     <!-- container-scroller -->
     <!-- plugins:js -->
    @include('admin.script')

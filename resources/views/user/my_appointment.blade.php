@@ -21,6 +21,29 @@
   <link rel="stylesheet" href="../assets/css/theme.css">
 
   <link rel="shortcut icon" href="admin/assets/images/mini-logo.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .btn-danger {
+      color: #ffffff; /* text color */
+      background-color: #ffaa00; /* custom yellow-orange color */
+      border-color: #ffaa00; /* custom border color */
+    }
+
+    .text-red-500 {
+    color: red;
+}
+
+.text-yellow-500 {
+    color: yellow;
+}
+
+.text-green-500 {
+    color: green;
+}
+  
+  </style>
 </head>
 <body>
 
@@ -49,19 +72,17 @@
         <div class="collapse navbar-collapse" id="navbarSupport" style="visibility: visible !important;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="{{ url('home') }}">Home</a>
+
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about.html">Personal Information</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="doctors.html">Doctors</a>
+              <a class="nav-link" href="blog.html">Testimonies</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="contact.html">Announcement</a>
             </li>
 
             @if(Route::has('login'))
@@ -96,32 +117,47 @@
     </nav>
   </header>
   
-  <div align="center" style="padding:70px;">
+  <div align="center" style="padding:10px;">
     
     <table>
         <tr style="background-color:#00D9A5;">
-            <th style="padding:10px; font-size: 20px; color:white;">Doctor Name</th>
-            <th style="padding:10px; font-size: 20px; color:white;">Date</th>
-            <th style="padding:10px; font-size: 20px; color:white;">Message</th>
-            <th style="padding:10px; font-size: 20px; color:white;">Status</th>
-            <th style="padding:10px; font-size: 20px; color:white;">Cancel Appointment</th>
+            <th style="padding:10px; font-size: 20px; color:white; border: 1px solid #bdbdbd;">Doctor Name</th>
+            <th style="padding:10px; font-size: 20px; color:white; border: 1px solid #bdbdbd;">Date</th>
+            <th style="padding:10px; font-size: 20px; color:white; border: 1px solid #bdbdbd;">Message</th>
+            <th style="padding:10px; font-size: 20px; color:white; border: 1px solid #bdbdbd;">Status</th>
+            <th style="padding:10px; font-size: 20px; color:white; border: 1px solid #bdbdbd;">Cancel Appointment</th>
         </tr>
 
         @foreach($appoint as $appoints)
 
-        <tr style="background-color: #dadada;"; align="center">
-            <td style="padding:10px; color:rgb(0, 0, 0);">{{$appoints->doctor}}</td>
-            <td style="padding:10px; color:rgb(0, 0, 0);">{{$appoints->date}}</td>
-            <td style="padding:10px; color:rgb(0, 0, 0);">{{$appoints->message}}</td>
-            <td style="padding:10px; color:rgb(0, 0, 0);">{{$appoints->status}}</td>
-            <td><a class="btn btn-danger" onclick="return confirm('Are you sure to delete this?')" href="{{url('cancel_appoint',$appoints->id)}}">Cancel</a></td>
+        <tr style="background-color: #f8f8f8;"; align="center">
+            <td style="padding:10px; color:rgb(0, 0, 0); border: 1px solid #bdbdbd;">{{$appoints->doctor}}</td>
+            <td style="padding:10px; color:rgb(0, 0, 0); border: 1px solid #bdbdbd;">{{$appoints->date}}</td>
+            <td style="padding:10px; color:rgb(0, 0, 0); border: 1px solid #bdbdbd;">{{$appoints->message}}</td>
+            <td style="padding:10px; border: 1px solid #bdbdbd;">
+              <span class="{{ $appoints->status == 'Cancelled' ? 'text-red-500' : ($appoints->status == 'In Progress' ? 'text-yellow-500' : 'text-green-500') }}">
+                  {{$appoints->status}}
+              </span>
+          </td>
+          <td>
+            <a class="btn btn-danger" style="border: 1px solid #bdbdbd;" onclick="return confirm('Are you sure to delete this?')" href="{{url('cancel_appoint',$appoints->id)}}">
+                <i class="fa fa-times"></i> Cancel
+            </a>
+            <a class="btn btn-secondary" style="border: 1px solid #bdbdbd;" href="{{url('edit_appoint',$appoints->id)}}">
+                <i class="fa fa-pencil"></i> Edit
+            </a>
+        </td>
         </tr>
 
         @endforeach
 
     </table>
   </div>
-  
+  <!-- Your table here -->
+
+  <div style="display: flex; justify-content: center;">
+    {{ $appoint->links() }}
+</div>
 
 <script src="../assets/js/jquery-3.5.1.min.js"></script>
 

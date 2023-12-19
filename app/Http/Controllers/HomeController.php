@@ -73,7 +73,7 @@ return redirect()->back()->with('message','Appointment Request Successfull . We 
     {
         if(Auth::id()){
             $userid=Auth::user()->id;
-            $appoint=appointment::where('user_id',$userid)->get();
+            $appoint=appointment::where('user_id',$userid)->paginate(10); // Change this line
             return view('user.my_appointment',compact('appoint'));
         }
         else
@@ -87,5 +87,41 @@ return redirect()->back()->with('message','Appointment Request Successfull . We 
         $data->delete();
         return redirect()->back();
     }
+
+    public function edit_appoint($id) {
+        $appointment = Appointment::find($id);
+        $doctors = Doctor::all(); // Retrieve all doctors
+        return view('user.edit_appointment', compact('appointment', 'doctors')); // Pass doctors to the view
+    }
+
+    public function updateAppointment(Request $request, $id)
+{
+    $appointment = Appointment::find($id);
+
+    if (!$appointment) {
+        return redirect()->route('user.my_appointment')->with('error', 'Appointment not found!');
+    }
+
+    // Update appointment fields based on the form data
+    $appointment->update([
+        'name' => $request->input('name'),
+        'email' => $request->input('email'),
+        'date' => $request->input('date'),
+        'doctor' => $request->input('doctor'), // Update with the correct field name
+        'specialty' => $request->input('specialty'),
+        'phone' => $request->input('number'),
+        'message' => $request->input('message'),
+    ]);
+    
+
+    // Check if the update was successful
+    if ($appointment->wasChanged()) {
+        return redirect()->route('user.my_appointment')->with('success', 'Appointment updated successfully!');
+    } else {
+        return redirect()->route('user.my_appointment')->with('error', 'No changes made to the appointment.');
+    }
+    }
+    
+    
 
 }

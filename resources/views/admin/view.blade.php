@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creating a Stunning Personal Profile Card with HTML and CSS</title>
+    <title>Alaga | View</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <style>
@@ -151,35 +151,44 @@ background: linear-gradient(to right, #14c299, #008667);
     </style>
 </head>
 <body>
-
-    <div class="card">
-  <div class="left-container">
-    <img src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__480.jpg" alt="Profile Image">
-    <h2 class="gradienttext">Johnrey Dado</h2>
-    <p>Dermatologists</p>
-  </div>
-  <div class="right-container">
-    <h3 class="gradienttext">Profile Details</h3>
-    <table>
-        <tr>
-            <td>Name :</td>
-            <td>Johnrey Dado</td>
-          </tr>
-      <tr>
-        <td>Phone :</td>
-        <td>09111111111</td>
-      </tr>
-      <tr>
-        <td>Specialty :</td>
-        <td>Dermatologist</td>
-      </tr>
-      <tr>
-        <td>Room No. :</td>
-        <td>32233</td>
-      </tr>
-    </table>
-  </div>
-</div>
-
+  
+  <div class="card">
+      <div class="left-container">
+          <img src="{{ $doctor->image }}" alt="Profile Image">
+          <h2 class="gradienttext">{{ $doctor->name }}</h2>
+          <p>{{ $doctor->specialty }}</p>
+      </div>
+      <div class="right-container">
+          <h3 class="gradienttext">Profile Details</h3>
+          <table>
+              <tr>
+                  <td>Name :</td>
+                  <td>{{ $doctor->name }}</td>
+              </tr>
+              <tr>
+                  <td>Phone :</td>
+                  <td>{{ $doctor->phone }}</td>
+              </tr>
+              <tr>
+                  <td>Specialty :</td>
+                  <td>{{ $doctor->specialty }}</td>
+              </tr>
+              <tr>
+                  <td>Room No. :</td>
+                  <td>{{ $doctor->room }}</td>
+              </tr>
+          </table>
+          
+      </div>
+  </div><br>
+  <a href="{{ url('showdoctor') }}" class="btn btn-secondary mb-3">Back</a>
+  
 </body>
 </html>
+
+
+
+
+
+
+
